@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "HK+MKKgMZ8iiBP//XhUml0fuEB1dU+U9C4s24z3dyeYiIe8aVSb6gCaoGqumHVY3RJ5l8k3afgMRTZ2XTv902Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\dacru\\source\\repos\\VocalConnect\\VocalConnect.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dacru\\.nuget\\packages\\system.speech\\8.0.0\\system.speech.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,8 @@
+C:\Users\dacru\source\repos\VocalConnect\bin\Release\net8.0-windows\app.publish\VocalConnect.exe
+C:\Users\dacru\source\repos\VocalConnect\bin\Release\net8.0-windows\app.publish\VocalConnect.dll
+C:\Users\dacru\source\repos\VocalConnect\bin\Release\net8.0-windows\app.publish\VocalConnect.deps.json
+C:\Users\dacru\source\repos\VocalConnect\bin\Release\net8.0-windows\app.publish\VocalConnect.runtimeconfig.json
+C:\Users\dacru\source\repos\VocalConnect\bin\Release\net8.0-windows\app.publish\VocalConnect.dll.config
+C:\Users\dacru\source\repos\VocalConnect\bin\Release\net8.0-windows\app.publish\VocalConnect.pdb
+C:\Users\dacru\source\repos\VocalConnect\bin\Release\net8.0-windows\app.publish\System.Speech.dll
+C:\Users\dacru\source\repos\VocalConnect\bin\Release\net8.0-windows\app.publish\runtimes\win\lib\net8.0\System.Speech.dll
