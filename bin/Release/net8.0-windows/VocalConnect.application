@@ -8,7 +8,7 @@
         <beforeApplicationStartup />
       </update>
     </subscription>
-    <deploymentProvider codebase="https://github.com/geomtech/VocalConnect/VocalConnect.application" />
+    <deploymentProvider codebase="https://geomtech.github.io/VocalConnect/VocalConnect.application" />
   </deployment>
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
     <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
@@ -21,7 +21,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>QyVYB8lOSK4qmFPwkIsH0rxy5twGsZCjOxZ9bxkQTzI=</dsig:DigestValue>
+        <dsig:DigestValue>X8Gwf8dpC/VZDHJc/pqXvBhJbLr6ZVpaQUhUlUVTQFI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

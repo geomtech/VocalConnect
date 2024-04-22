@@ -80,13 +80,13 @@
       <dsig:DigestValue>JBLieJA7ZI6UxhUrIPL+2L+NDxWtEKNf6RlMXbcQWnU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="VocalConnect.dll" size="209408">
+  <file name="VocalConnect.dll" size="208896">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>KLigIwSjfcW11G8FMy6pCoFMcCmCemrzHN5npsc9GIo=</dsig:DigestValue>
+      <dsig:DigestValue>AToMZEzIiwXnDgP85uq0W3xKv6ihD6FtFOQJvhCaYoE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="VocalConnect.dll.config" size="1389">
@@ -98,13 +98,13 @@
       <dsig:DigestValue>osQPrcS1E+IWzHMJL9fi6WKPqjkJp8casGAgsrlAgjw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="VocalConnect.exe" size="142848">
+  <file name="VocalConnect.exe" size="142336">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>BWs2LyrKbm2eY/SCeq2Dmh7VA03pGnwRuructfOEnRA=</dsig:DigestValue>
+      <dsig:DigestValue>HRN+hcCjzbUPo2Nztp7tHfpI8ACZjjmG0MtXmwQjCYo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="VocalConnect.runtimeconfig.json" size="458">

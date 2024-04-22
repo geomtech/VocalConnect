@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VocalConnect")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f0bac9a6e0e0008a782990aa6de9fec76d653763")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9eafd97546e304d07b4ae3a03bd1d8e0d87f09c")]
 [assembly: System.Reflection.AssemblyProductAttribute("VocalConnect")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VocalConnect")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
