@@ -27,6 +27,21 @@ namespace VocalConnect
             Properties.Settings.Default.groupZoomID = groupZoomIDTextbox.Text;
 
             Properties.Settings.Default.Save();
+            Properties.Settings.Default.Reload();
+
+            this.Close();
+        }
+
+        private void SettingsForm_Load_1(object sender, EventArgs e)
+        {
+            kHZoomCodeTextbox.Text = Properties.Settings.Default.kHZoomCode;
+            kHZoomIDTextbox.Text = Properties.Settings.Default.kHZoomID;
+            ministryZoomCodeTextbox.Text = Properties.Settings.Default.ministryZoomCode;
+            ministryZoomIDTextbox.Text = Properties.Settings.Default.ministryZoomID;
+            groupZoomCodeTextbox.Text = Properties.Settings.Default.groupZoomCode;
+            groupZoomIDTextbox.Text = Properties.Settings.Default.groupZoomID;
+
+            this.ActiveControl = kHZoomIDTextbox;
         }
     }
 }

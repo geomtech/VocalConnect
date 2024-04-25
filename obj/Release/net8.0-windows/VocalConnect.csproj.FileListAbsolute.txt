@@ -22,7 +22,3 @@ C:\Users\dacru\source\repos\VocalConnect\obj\Release\net8.0-windows\refint\Vocal
 C:\Users\dacru\source\repos\VocalConnect\obj\Release\net8.0-windows\VocalConnect.pdb
 C:\Users\dacru\source\repos\VocalConnect\obj\Release\net8.0-windows\VocalConnect.genruntimeconfig.cache
 C:\Users\dacru\source\repos\VocalConnect\obj\Release\net8.0-windows\ref\VocalConnect.dll
-C:\Users\dacru\source\repos\VocalConnect\bin\Release\net8.0-windows\VocalConnect.dll.manifest
-C:\Users\dacru\source\repos\VocalConnect\bin\Release\net8.0-windows\VocalConnect.application
-C:\Users\dacru\source\repos\VocalConnect\obj\Release\net8.0-windows\VocalConnect.dll.manifest
-C:\Users\dacru\source\repos\VocalConnect\obj\Release\net8.0-windows\VocalConnect.application

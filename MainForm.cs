@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using System.Security.Policy;
 using System.Speech.Recognition;
 using System.Windows.Forms;
 
@@ -7,6 +8,15 @@ namespace VocalConnect
 {
     public partial class MainForm : Form
     {
+        private bool wantZoom = false;
+        private bool inZoom = false;
+        private System.Media.SoundPlayer bienvenuePlayer = new System.Media.SoundPlayer(Properties.Resources.bienvenue);
+        private System.Media.SoundPlayer errorPlayer = new System.Media.SoundPlayer(Properties.Resources.erreur);
+        private System.Media.SoundPlayer unknownCommandPlayer = new System.Media.SoundPlayer(Properties.Resources.commande_non_reconnue);
+        private System.Media.SoundPlayer closingPlayer = new System.Media.SoundPlayer(Properties.Resources.fermeture);
+        private System.Media.SoundPlayer connectPlayer = new System.Media.SoundPlayer(Properties.Resources.connexion);
+        private System.Media.SoundPlayer missingSettingsPlayer = new System.Media.SoundPlayer(Properties.Resources.parametres_manquants);
+
         public MainForm()
         {
             InitializeComponent();
@@ -14,13 +24,26 @@ namespace VocalConnect
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // start audio from ressources
+            bienvenuePlayer.Play();
+
+            timer1.Interval = 60000;
+            timer1.Start();
+            timer1.Tick += (s, ev) =>
+            {
+                if (wantZoom == false)
+                {
+                    bienvenuePlayer.Play();
+                }
+            };
+
             // Créer un objet SpeechRecognitionEngine
             SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("fr-FR"));
 
             recognizer.SetInputToDefaultAudioDevice();
 
             // Ajouter une grammaire de reconnaissance
-            Choices commands = new Choices(new string[] { "Bonjour", "Aurevoir", "Il est quelle heure", "Salle du royaume", "Réunion", "la salle", "RPP", "prédication", "week-end", "réunion de pascal", "réunion alexy", "groupe" });
+            Choices commands = new Choices(new string[] { "Zoom", "Stop", "réunion", "prédication", "groupe" });
             GrammarBuilder grammarBuilder = new GrammarBuilder(commands);
             Grammar grammar = new Grammar(grammarBuilder);
 
@@ -29,34 +52,59 @@ namespace VocalConnect
             // Gérer l'événement de reconnaissance
             recognizer.SpeechRecognized += (sender, e) =>
             {
-                try
+                if (wantZoom == false)
                 {
-                    switch (e.Result.Text)
+                    try
                     {
-                        case "Salle du royaume":
-                        case "la salle":
-                        case "Réunion":
-                            OpenZoomMeeting(Properties.Settings.Default.kHZoomID, Properties.Settings.Default.kHZoomCode);
-                            break;
-                        case "RPP":
-                        case "prédication":
-                        case "réunion pour la prédication":
-                            OpenZoomMeeting(Properties.Settings.Default.ministryZoomID, Properties.Settings.Default.ministryZoomCode);
-                            break;
-                        case "week-end":
-                        case "réunion de pascal":
-                        case "réunion alexy":
-                        case "groupe":
-                            OpenZoomMeeting(Properties.Settings.Default.groupZoomID, Properties.Settings.Default.groupZoomCode);
-                            break;
-                        default:
-                            // Commande non reconnue
-                            break;
+                        switch (e.Result.Text)
+                        {
+                            case "Zoom":
+                                wantZoom = true;
+                                connectPlayer.Play();
+                                break;
+                            case "Stop":
+                                closingPlayer.Play();
+                                Application.Exit();
+                                break;
+                            default:
+                                break;
+                        }
                     }
-                }
-                catch (Exception ex)
+                    catch (Exception)
+                    {
+                        errorPlayer.Play();
+                    }
+                } 
+                else
                 {
-                    MessageBox.Show("Une erreur est survenue : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (inZoom == false)
+                    {
+                        try
+                        {
+                            switch (e.Result.Text)
+                            {
+                                case "réunion":
+                                    OpenZoomMeeting(Properties.Settings.Default.kHZoomID, Properties.Settings.Default.kHZoomCode);
+                                    break;
+                                case "prédication":
+                                    OpenZoomMeeting(Properties.Settings.Default.ministryZoomID, Properties.Settings.Default.ministryZoomCode);
+                                    break;
+                                case "groupe":
+                                    OpenZoomMeeting(Properties.Settings.Default.groupZoomID, Properties.Settings.Default.groupZoomCode);
+                                    break;
+                                case "Stop":
+                                    closingPlayer.Play();
+                                    Application.Exit();
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            errorPlayer.Play();
+                        }
+                    }
                 }
             };
 
@@ -72,14 +120,25 @@ namespace VocalConnect
 
         private void OpenZoomMeeting(string meetingID, string meetingCode)
         {
+            inZoom = true;
+
+            Properties.Settings.Default.Reload();
+
             if (string.IsNullOrEmpty(meetingID) || string.IsNullOrEmpty(meetingCode))
             {
-                MessageBox.Show("Les paramètres pour l'ID de la réunion ou le code sont manquants.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                missingSettingsPlayer.Play();
                 return;
             }
 
-            string zoomURLPath = meetingID + "?pwd=" + meetingCode;
-            Process.Start("https://zoom.us/j/" + zoomURLPath);
+            string zoomURL = "zoommtg://zoom.us/join?action=join&confno=" + meetingID + "&pwd=" + meetingCode;
+
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = zoomURL,
+                UseShellExecute = true
+            });
+
+            Application.Exit();
         }
     }
 }

@@ -30,10 +30,12 @@ namespace VocalConnect
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             settingsButton = new Button();
             pictureBox1 = new PictureBox();
             label1 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -61,13 +63,14 @@ namespace VocalConnect
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.ForeColor = Color.White;
-            label1.Location = new Point(272, 362);
+            label1.Location = new Point(174, 367);
             label1.Name = "label1";
-            label1.Size = new Size(230, 15);
+            label1.Size = new Size(328, 15);
             label1.TabIndex = 5;
-            label1.Text = "Développé et supporté par Alexy DA CRUZ";
+            label1.Text = "Pour toute question sur ce logiciel, contactez Alexy DA CRUZ";
             // 
             // MainForm
             // 
@@ -97,5 +100,6 @@ namespace VocalConnect
         private Button settingsButton;
         private PictureBox pictureBox1;
         private Label label1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

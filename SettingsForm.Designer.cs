@@ -155,6 +155,7 @@
             Name = "SettingsForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Paramètres de VocalConnect";
+            Load += SettingsForm_Load_1;
             zoomGroupBox.ResumeLayout(false);
             zoomGroupBox.PerformLayout();
             groupBox1.ResumeLayout(false);
